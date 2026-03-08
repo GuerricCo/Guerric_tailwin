@@ -53,22 +53,22 @@ export const cards = [
 
 export default function SustainabilityGoals() {
   return (
-    <section className="bg-gray-50 px-6 py-16 font-sans">
-      <div className="max-w-5xl mx-auto">
+    <section className="bg-(--color-gray-light) px-6 py-16 font-sans">
+  <div className="max-w-5xl mx-auto">
 
-        <h2 className="text-3xl sm:text-6xl font-bold text-gray-900 text-center leading-tight mb-12">
-          Guiding Businesses Toward
-          <br />
-          Sustainability Goals
-        </h2>
+    <h2 className="text-3xl sm:text-6xl font-bold text-(--color-black) text-center leading-tight mb-12">
+      Guiding Businesses Toward
+      <br />
+      Sustainability Goals
+    </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cards.map((card) => (
-            <SustainabilityCard key={card.id} card={card} />
-          ))}
-        </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {cards.map((card) => (
+        <SustainabilityCard key={card.id} card={card} />
+      ))}
+    </div>
 
-      </div>
-    </section>
+  </div>
+</section>
   );
 }

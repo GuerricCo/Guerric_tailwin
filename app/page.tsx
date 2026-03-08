@@ -1,8 +1,10 @@
-import Faq from "./components/faq";
+
+import Faq from "./components/Faq";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import SustainabilityGoals from "./components/sustainabilityGoals/SustainabilityGoals";
-import TrendingArticles from "./components/TrendindArticles";
+import SustainabilityGoals from "./components/sustainability/SustainabilityGoals";
+import TrendingArticles from "./components/articles/TrendindArticles";
 
 export default function Home() {
   return (
@@ -13,6 +15,7 @@ export default function Home() {
         <TrendingArticles />
         <SustainabilityGoals />
         <Faq />
+        <Footer />
       </main>
   );
 }

@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 1) Présentation du projet
 
-## Getting Started
+**Description rapide de la page reproduite :**
+Il s’agit d’une landing page pour **Inovasi Agriplot**. La page inclut :
 
-First, run the development server:
+* Un **header fixe** avec logo et navigation principale
+* Une **section hero** avec titre, sous-titre et badges
+* Une section **trending articles**
+* Une section **Sustainability Cards** présentant des services ou produits
+* Une section **FAQ**
+* Un **footer** complet avec logo, liens, contacts et adresses
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Structure générale choisie :**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* **Header** – navigation et dashboard
+* **Hero** – titre principal, description, badges et tags
+* **TrendingArticles** – liste des articles récents
+* **SustainabilityGoals** – cartes de services/produits
+* **Faq** – questions fréquentes avec accordéon
+* **Footer** – informations de contact et liens utiles
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 2) Application des concepts d’ergonomie
 
-## Learn More
+**Hiérarchie visuelle :**
 
-To learn more about Next.js, take a look at the following resources:
+* Titres en grande taille
+* Sous-titres plus petits et en gris clair pour indiquer un niveau inférieur
+* Badges et CTA clairement distincts par couleur et forme
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Charge cognitive :**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* La page est segmentée en sections distinctes avec des **espaces blancs**
+* Chaque section a un objectif unique.
 
-## Deploy on Vercel
+**Pattern de lecture utilisé :**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Pattern **F** sur le header et les listes d’articles
+* Pattern **Z** pour le hero, qui attire d’abord l’œil sur le badge, puis le titre, puis le CTA
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**CTA mis en avant :**
+
+* `Get in touch`, `Dashboard` et `Contact us` sont en boutons colorés contrastés
+* Taille, couleur et position fixée pour attirer l’attention
+
+**Application des heuristiques de Nielsen :**
+
+* **Correspondance entre le système et le monde réel** : labels explicites (`Dashboard`, `Contact us`)
+* **Contrôle et liberté de l’utilisateur** : navigation claire, liens vers toutes les pages importantes
+* **Prévention des erreurs** : boutons CTA clairement distincts
+
+---
+
+## 3) Accessibilité
+
+**Respect des WCAG :**
+
+* Contraste texte/fond respecté (texte noir sur fond clair, texte blanc sur fond foncé)
+* Badges et boutons ont un contraste suffisant pour la lisibilité
+
+**Gestion du focus :**
+
+* Les liens et boutons ont des styles de focus visibles
+
+**Choix sémantiques HTML :**
+
+* `<header>`, `<section>`, `<h1>`, `<h2>`, `<h3>` correctement utilisés pour la hiérarchie
+* `<nav>` pour la navigation
+* `<ul>` et `<li>` pour les listes d’articles et FAQ
+
+---
+
+## 4) Choix techniques Tailwind
+
+**Définition des tokens :**
+
+* Variables CSS globales pour couleurs :
+
+  ```css
+  --color-bg-dark: #111111;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #9ca3af;
+  --color-gray-light: #f9fafb;
+  --color-emerald: #10b981;
+  --color-emerald-light: #d1fae5;
+  ```
+* Cela permet de **centraliser le thème** et de faciliter les changements globaux
+
+**Structuration des sections :**
+
+* Chaque section est un composant React (`Hero`, `TrendingArticles`, `SustainabilityGoals`, `Faq`, `Footer`)
+* Layout responsive avec `grid` et `flex`
+
+**Utilities créées :**
+
+* `text-(--color-black)`, `text-(--color-gray)`, `bg-(--color-emerald-light)`
+* Permettent d’éviter la répétition et de respecter le design system
+
+**Gestion du responsive :**
+
+* Breakpoints Tailwind : `sm`, `md`, `lg`
+* Grids adaptatifs pour Sustainability Cards et Articles
+
+---
+
+## 5) Difficultés rencontrées
+
+**Problèmes techniques :**
+
+* Intégratione et choix des **variables CSS avec Tailwind**
+* Gestion des couleurs dynamiques dans les classes Tailwind (`text-(--color-gray)`)
+
+**Problèmes responsive :**
+
+* Alignement des images et texte dans `ArticleCard` sur petit écran
+* Badges et tags doivent rester lisibles et centrés
+
+**Arbitrages faits :**
+
+* Réduction du nombre de colonnes sur mobile pour les cartes
+* Simplification de certains textes pour éviter la surcharge cognitive
+
